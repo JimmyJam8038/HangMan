@@ -48,3 +48,21 @@ body {
     background-color: #f44336;
     pointer-events: none;
 }
+
+h1 {
+    color:#00FF00
+}
+
+button {
+
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 200px;
+    background-color: violet;
+    color: green;
+    font-weight: bold;
+    
+}

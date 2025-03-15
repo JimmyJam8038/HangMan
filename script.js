@@ -55,6 +55,7 @@ const word = ["apple", "banana", "carrot", "dog", "elephant", "fish", "giraffe",
             }
         }
     }
+
     
     function revealLetter(letter) {
         let displayWord = "";
@@ -67,6 +68,10 @@ const word = ["apple", "banana", "carrot", "dog", "elephant", "fish", "giraffe",
         }
         maskedWord = displayWord;
         document.getElementById("wordDisplay").innerHTML = maskedWord;
+        if (!maskedWord.includes("_")) {
+            document.getElementById("wordDisplay").innerHTML = `🎉 Congratulations! You guessed the word: <strong>${chosen}</strong>`;
+            disableKeyboard();
+        }
     }
     
     function updateHangmanImage() {
@@ -78,7 +83,15 @@ const word = ["apple", "banana", "carrot", "dog", "elephant", "fish", "giraffe",
         const buttons = document.querySelectorAll(".keyboard button");
         buttons.forEach(button => {
             button.setAttribute("disabled", "disabled");
+            
         });
+        const button = document.createElement("button");
+        button.textContent = "Next Word";
+        button.addEventListener("click", function () {
+            location.reload();
+        }); 
+        keyboardDiv.appendChild(button);
+        
     }
     
     function control(event) {
